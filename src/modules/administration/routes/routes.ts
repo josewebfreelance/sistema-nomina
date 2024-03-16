@@ -1,5 +1,4 @@
-
-import {PassivePage} from "../pages/PassivePage.tsx";
+import {LogPage, PassivePage} from "../pages";
 
 
 export const routes = [
@@ -7,6 +6,12 @@ export const routes = [
         path: 'passive',
         to: 'passive',
         Component: PassivePage,
-        name: 'PassivePage - Page'
+        name: 'PassivePage'
+    },
+    {
+        path: 'log',
+        to: 'log',
+        Component: LogPage,
+        name: 'LogPage'
     }
 ];

@@ -1,7 +1,13 @@
+import {Typography} from "@mui/material";
+
 export const PassivePage = () => {
 	return (
 		<>
-			<h1>PassivePage Works!</h1>
+			<Typography
+				variant={'h1'}
+			>
+				PassivePage Works!
+			</Typography>
 		</>
 	)
 }
