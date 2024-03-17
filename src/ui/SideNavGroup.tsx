@@ -1,23 +1,25 @@
-import {useState} from "react";
 import {Collapse, List, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import {ExpandLess, ExpandMore} from "@mui/icons-material";
 import {SideNavGroupInterface} from "../interfaces";
 import {SideNavItem} from "./";
+import {useAppDispatch, useAppSelector} from "../store";
+import {setCollapsable} from "../store/ui/sidenav/sidenavSlice.ts";
 
 
 export const SideNavGroup = ({moduleName, items}: SideNavGroupInterface) => {
-    const [open, setOpen] = useState(false);
 
-    const handleClick = () => {
-        setOpen(!open);
+    const { collapsable } =  useAppSelector((state) => state.sidenav);
+    const dispatch = useAppDispatch();
+    const handleCollapse = () => {
+        dispatch(setCollapsable({ open: !collapsable }));
     };
 
     return (
         <List component={'nav'}>
-            <ListItemButton onClick={handleClick}>
+            <ListItemButton onClick={handleCollapse}>
                 <ListItemIcon>
                     {
-                        open
+                        collapsable
                             ? <ExpandLess sx={{color: 'white'}}/>
                             : <ExpandMore sx={{color: 'white'}}/>
                     }
@@ -25,7 +27,7 @@ export const SideNavGroup = ({moduleName, items}: SideNavGroupInterface) => {
                 <ListItemText primary={moduleName}/>
             </ListItemButton>
 
-            <Collapse in={open} timeout={'auto'} unmountOnExit>
+            <Collapse in={collapsable} timeout={'auto'} unmountOnExit>
                 <List component={'div'}>
                     {
                         items.map((item) => (
