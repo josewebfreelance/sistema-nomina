@@ -8,7 +8,7 @@ export const DrawerNav = ({drawerWidth = 270}) => {
     const {drawer} = useAppSelector((state) => state.sidenav);
 
     return (
-        <Box sx={{display: 'flex'}}>
+        <Box sx={{display: 'flex', height: '100%'}}>
             <Box
                 component={'nav'}
                 sx={{width: {sm: drawerWidth}, flexShrink: {sm: 0}}}
@@ -23,7 +23,7 @@ export const DrawerNav = ({drawerWidth = 270}) => {
 
             </Box>
 
-            <Box component={'main'} sx={{flexGrow: 1, p: 3}}>
+            <Box component={'main'} sx={{flexGrow: 1, p: 3, height: '100%'}}>
                 <AppRouter/>
             </Box>
         </Box>

@@ -4,7 +4,9 @@ import {Box} from "@mui/material";
 
 export const AdministrationRoutes = () => {
 	return (
-		<Box>
+		<Box sx={{
+			height: '100%'
+		}}>
 			<Routes>
 				{
 					routes.map(({Component, path}) => (
