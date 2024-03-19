@@ -8,5 +8,5 @@ export const routes = [
         to: ADMIN_BASE_PATH,
         path: `${ADMIN_BASE_PATH}/*`,
         Component: LazyAdministratorModule,
-    },
+    }
 ];

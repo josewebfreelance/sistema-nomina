@@ -2,29 +2,32 @@ import {Collapse, List, ListItemButton, ListItemIcon, ListItemText} from "@mui/m
 import {ExpandLess, ExpandMore} from "@mui/icons-material";
 import {SideNavGroupInterface} from "../interfaces";
 import {SideNavItem} from "./";
-import {useAppDispatch, useAppSelector} from "../store";
-import {setCollapsable} from "../store/ui/sidenav/sidenavSlice.ts";
+import {useState} from "react";
 
 
 export const SideNavGroup = ({moduleName, items}: SideNavGroupInterface) => {
 
-    const { collapsable } =  useAppSelector((state) => state.sidenav);
-    const dispatch = useAppDispatch();
+    const [collapsable, setLocalCollapsable] = useState(false);
+
     const handleCollapse = () => {
-        dispatch(setCollapsable({ open: !collapsable }));
+        setLocalCollapsable(prevState => !prevState)
     };
 
     return (
-        <List component={'nav'}>
-            <ListItemButton onClick={handleCollapse}>
-                <ListItemIcon>
+        <List component={'nav'} sx={{
+            backgroundColor: 'rgb(255,255,255, 0.1)',
+            borderRadius: 5,
+            m: 1
+        }}>
+            <ListItemButton sx={{display: 'flex'}} onClick={handleCollapse} disableRipple>
+                <ListItemText primary={moduleName}/>
+                <ListItemIcon sx={{justifyContent: 'end'}}>
                     {
                         collapsable
                             ? <ExpandLess sx={{color: 'white'}}/>
                             : <ExpandMore sx={{color: 'white'}}/>
                     }
                 </ListItemIcon>
-                <ListItemText primary={moduleName}/>
             </ListItemButton>
 
             <Collapse in={collapsable} timeout={'auto'} unmountOnExit>

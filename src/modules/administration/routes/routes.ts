@@ -1,12 +1,12 @@
-import {LogPage, PassivePage} from "../pages";
+import {LogPage, EmployeePage} from "../pages";
 
 
 export const routes = [
     {
-        path: 'passive',
-        to: 'passive',
-        Component: PassivePage,
-        name: 'PassivePage'
+        path: 'employee',
+        to: 'employee',
+        Component: EmployeePage,
+        name: 'Empleado'
     },
     {
         path: 'log',

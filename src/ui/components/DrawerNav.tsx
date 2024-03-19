@@ -1,11 +1,11 @@
 import {Box, Drawer} from "@mui/material";
 import {AppRouter} from "../../routes/AppRouter.tsx";
 import {SideNav} from "../SideNav.tsx";
-import {useAppSelector} from "../../store";
+import {useState} from "react";
 
 export const DrawerNav = ({drawerWidth = 270}) => {
 
-    const {drawer} = useAppSelector((state) => state.sidenav);
+    const [drawer, setDrawer] = useState(true);
 
     return (
         <Box sx={{display: 'flex', height: '100%'}}>
@@ -23,7 +23,14 @@ export const DrawerNav = ({drawerWidth = 270}) => {
 
             </Box>
 
-            <Box component={'main'} sx={{flexGrow: 1, p: 3, height: '100%'}}>
+            <Box component={'main'} sx={{
+                flexGrow: 1,
+                pt: 1,
+                pr: 3,
+                pb: 3,
+                pl: 3,
+                height: '100%'
+            }}>
                 <AppRouter/>
             </Box>
         </Box>

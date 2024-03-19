@@ -1,2 +1,2 @@
-export * from "./PassivePage.tsx";
+export * from "./EmployeePage.tsx";
 export * from "./LogPage.tsx";

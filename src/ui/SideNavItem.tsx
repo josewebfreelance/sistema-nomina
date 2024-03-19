@@ -13,7 +13,12 @@ export const SideNavItem = ({to, name, NavIcon}: SidNavItemInterface) => {
     }
 
     return (
-        <ListItemButton sx={{ pl: 6 }} onClick={onNavigate}>
+        <ListItemButton sx={{
+            pl: 3,
+            backgroundColor: 'rgb(255,255,255, 0.1)',
+            borderRadius: 5,
+            m: 1
+        }} onClick={onNavigate} disableRipple>
             <ListItemIcon>
                 <NavIcon sx={{color: 'primary.light'}}/>
             </ListItemIcon>

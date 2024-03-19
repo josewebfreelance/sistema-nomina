@@ -1,15 +1,9 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {sidenavSlice} from "./ui";
-import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
 
+export interface StoreInterface {
+}
 
 export const store = configureStore({
-   reducer: {
-        sidenav: sidenavSlice.reducer
-   }
+    reducer: {}
 });
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
-export const useAppDispatch: () => AppDispatch = useDispatch
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
