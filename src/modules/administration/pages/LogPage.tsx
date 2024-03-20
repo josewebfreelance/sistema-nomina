@@ -12,8 +12,8 @@ import {
 	TableRow, TextField
 } from "@mui/material";
 import TablePaginationActions from "@mui/material/TablePagination/TablePaginationActions";
-import React from "react";
 import {Search} from "@mui/icons-material";
+import {ChangeEvent, useState} from "react";
 
 function createData(
 	name: string,
@@ -33,19 +33,19 @@ const rows = [
 	createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 export const LogPage = () => {
-	const [page, setPage] = React.useState(0);
-	const [rowsPerPage, setRowsPerPage] = React.useState(5);
-	const [age, setAge] = React.useState('');
+	const [page, setPage] = useState(0);
+	const [rowsPerPage, setRowsPerPage] = useState(5);
+	const [age, setAge] = useState('');
 
 	const handleChangePage = (
-		event: React.MouseEvent<HTMLButtonElement> | null,
+		event: MouseEvent | null,
 		newPage: number,
 	) => {
 		setPage(newPage);
 	};
 
 	const handleChangeRowsPerPage = (
-		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+		event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => {
 		setRowsPerPage(parseInt(event.target.value, 10));
 		setPage(0);

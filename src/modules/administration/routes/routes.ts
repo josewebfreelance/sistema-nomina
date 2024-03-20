@@ -1,19 +1,17 @@
-
-import {PassivePage} from "../pages/PassivePage.tsx";
-import {LogPage} from "../pages/LogPage.tsx";
+import {LogPage, EmployeePage} from "../pages";
 
 
 export const routes = [
     {
-        path: 'passive',
-        to: 'passive',
-        Component: PassivePage,
-        name: 'PassivePage - Page'
+        path: 'employee',
+        to: 'employee',
+        Component: EmployeePage,
+        name: 'Empleado'
     },
     {
         path: 'log',
         to: 'log',
         Component: LogPage,
-        name: 'LogPage - Page'
+        name: 'LogPage'
     }
 ];
