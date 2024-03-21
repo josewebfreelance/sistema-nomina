@@ -61,7 +61,7 @@ export const LogPage = () => {
 				marginBottom: '1rem'
 			}}>
 				<Grid item xs={3}>
-					<FormControl fullWidth sx={{
+					<FormControl sx={{
 						backgroundColor: 'white'
 					}}>
 						<InputLabel id="demo-simple-select-label">Puesto</InputLabel>
@@ -90,7 +90,7 @@ export const LogPage = () => {
 				<Grid item xs={2} sx={{
 					display: 'flex'
 				}}>
-					<Button fullWidth variant="contained" endIcon={<Search />}>
+					<Button sx={{width: '100%'}} variant="contained" endIcon={<Search />}>
 						Buscar
 					</Button>
 				</Grid>

@@ -18,7 +18,7 @@ export const CustomSelect = ({xs = 6, label, children, ...props}: Props) => {
 
     return (
         <Grid item xs={xs}>
-            <FormControl fullWidth error={meta.touched && meta.error}>
+            <FormControl sx={{width: '100%'}} error={meta.touched && meta.error}>
                 <InputLabel id={label}>{label}</InputLabel>
                 <Select labelId={label} label={label} {...field} {...props} >
                     {children}
