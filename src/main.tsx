@@ -7,13 +7,11 @@ import {store} from "./store";
 import './styles/styles.scss';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <Suspense fallback={<></>}>
-                <BrowserRouter>
-                    <PayrollApp/>
-                </BrowserRouter>
-            </Suspense>
-        </Provider>
-    </React.StrictMode>,
+    <Provider store={store}>
+        <Suspense fallback={<></>}>
+            <BrowserRouter>
+                <PayrollApp/>
+            </BrowserRouter>
+        </Suspense>
+    </Provider>
 )
