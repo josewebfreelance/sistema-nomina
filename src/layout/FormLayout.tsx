@@ -10,11 +10,11 @@ interface Props {
     initialValues: FormikValues;
     validationSchema: FormikConfig<FormikValues>;
     onSubmit: () => void;
-    onAdd?: () => void;
+    onClean: () => void;
 }
 
 
-export const FormLayout = ({update = true, children, initialValues, validationSchema, onSubmit, onAdd}: Props) => {
+export const FormLayout = ({update = true, children, initialValues, validationSchema, onSubmit, onClean}: Props) => {
     return (
         <>
             <Grid
@@ -35,6 +35,7 @@ export const FormLayout = ({update = true, children, initialValues, validationSc
                         initialValues={initialValues}
                         onSubmit={onSubmit}
                         validationSchema={validationSchema}
+                        enableReinitialize={true}
                     >
                         {
                             _ => (
@@ -51,8 +52,8 @@ export const FormLayout = ({update = true, children, initialValues, validationSc
                     </Formik>
                 </Box>
                 {
-                    update &&
-                    <Button className={'button-add'} onClick={onAdd}>
+                    !!update &&
+                    <Button className={'button-add'} onClick={onClean}>
                         <Add />
                     </Button>
                 }

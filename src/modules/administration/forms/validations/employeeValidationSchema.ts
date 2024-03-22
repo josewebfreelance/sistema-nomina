@@ -1,15 +1,12 @@
 import * as Yup from 'yup';
 
 export const employeeValidationSchema = Yup.object({
-    name: Yup
+    depNombre: Yup
         .string()
-        .max(10, 'El nombre puede ser de 10 cáracteres máximo')
+        .max(50, 'El nombre puede ser de 50 cáracteres máximo')
         .required('Nombre es requerido'),
-    lastName: Yup
+    depDescripcion: Yup
         .string()
-        .max(10, 'El apellido puede ser de 10 cáracteres máximo')
-        .required('Apellido es requerido'),
-    department: Yup
-        .number()
-        .required('El departamento es requerido')
+        .max(150, 'La descripción puede ser de 150 cáracteres máximo')
+        .required('Descripción es requerida')
 });

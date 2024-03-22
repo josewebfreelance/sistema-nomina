@@ -1,31 +1,39 @@
-import {MenuItem} from "@mui/material";
 import {FormikValues} from "formik";
 import {FormLayout} from "../../../layout/FormLayout.tsx";
-import {CustomInputText, CustomSelect} from "../../../components/form";
+import {CustomInputText} from "../../../components/form";
 import {employeeValidationSchema} from "./validations/employeeValidationSchema.ts";
+import {useDepartmentStore} from "../../../hooks";
 
 export const EmployeeForm = () => {
 
-    const onSubmit = async (values: FormikValues) => {
-        console.log(values);
+
+    const {
+        depCodigo,
+        depNombre = '',
+        depDescripcion = '',
+        saveOrUpdate,
+        cleanForm
+    } = useDepartmentStore();
+
+    const onClean = () => {
+        cleanForm();
     }
+
+    const onSubmit = async (values: FormikValues) => {
+        saveOrUpdate({...values, depCodigo});
+    }
+
 
     return (
         <FormLayout
+            update={depCodigo}
             onSubmit={onSubmit}
-            initialValues={{
-                name: '',
-                lastName: '',
-                department: null
-            }}
+            initialValues={{depNombre, depDescripcion}}
             validationSchema={employeeValidationSchema}
+            onClean={onClean}
         >
-            <CustomInputText label={'Nombre'} name={'name'}/>
-            <CustomInputText label={'Apellido'} name={'lastName'}/>
-            <CustomSelect label={'Departamento'} name={'department'}>
-                <MenuItem value={1}>Ventas</MenuItem>
-                <MenuItem value={2}>Operativo</MenuItem>
-            </CustomSelect>
+            <CustomInputText label={'Nombre'} name={'depNombre'}/>
+            <CustomInputText label={'Descripcion'} name={'depDescripcion'}/>
         </FormLayout>
     )
 }
